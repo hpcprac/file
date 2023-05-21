@@ -1,10 +1,4 @@
-/*
-Name: Alwis Shaji
-Roll no: COBA001
 
-Design and implement Parallel Depth First Search based on existing
-algorithms using OpenMP. Use a Tree or an undirected graph for DFS
-*/
 #include <iostream>
 #include <vector>
 #include <stack>
