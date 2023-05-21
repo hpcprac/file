@@ -16,9 +16,13 @@ int main(){
     int n;
     cin>>n;
     int arr[n];
+    cout<<"input array:";
     for(int i=0;i<n;i++){
         arr[i]=rand()%n;
+        cout<<arr[i]<<" ";
     }
+    cout<<endl;
+    cout<<"sorted array:";
     bubbleSort(arr,n);
     for(int i=0;i<n;i++){
         cout<<arr[i]<<" ";
