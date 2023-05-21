@@ -45,9 +45,13 @@ int main(){
     int n;
     cin>>n;
     int arr[n];
+    cout<<"input array:";
     for(int i=0;i<n;i++){
         arr[i]=rand()%n;
+        cout<<arr[i]<<" ";
     }
+    cout<<endl;
+    cout<<"sorted array:";
     int start=omp_get_wtime();
     #pragma omp parallel
     {
