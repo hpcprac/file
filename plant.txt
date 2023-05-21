@@ -1,35 +1,31 @@
-# Importing Necessary Packages
+
 import numpy as np
 import pandas as pd 
 import matplotlib.pyplot as plt
 import tensorflow as tf
 from tensorflow.keras import layers
 
-
-
 ## Defining batch specfications
 batch_size = 100
-img_height = 250
-img_width = 250
+img_height = 50 
+img_width = 50
 
+!gdown --id 1INRO741DUQ9SLfBfPqQr-yBo7SqYD25W
+!unzip archive\ \(4\).zip
 
 ## loading training set
 training_ds = tf.keras.preprocessing.image_dataset_from_directory(
-    'New Plant Diseases Dataset(Augmented)/train',
+    '/content/new plant diseases dataset(augmented)/New Plant Diseases Dataset(Augmented)/train',
     seed=42,
     image_size= (img_height, img_width),
     batch_size=batch_size)
-
-
 
 ## loading validation dataset
 validation_ds =  tf.keras.preprocessing.image_dataset_from_directory(
-    'New Plant Diseases Dataset(Augmented)/valid',
+    '/content/new plant diseases dataset(augmented)/New Plant Diseases Dataset(Augmented)/valid',
     seed=42,
     image_size= (img_height, img_width),
     batch_size=batch_size)
-
-
 
 class_names = training_ds.class_names
 
@@ -47,32 +43,14 @@ MyCnn = tf.keras.models.Sequential([
   layers.Dense(len(class_names), activation= 'softmax')
 ])
 
-
-
-
-
-
-
 MyCnn.compile(optimizer='adam',loss='sparse_categorical_crossentropy', metrics=['accuracy'])
-
-
-
-
-
 
 ## lets train our CNN
 retVal = MyCnn.fit(training_ds,validation_data= validation_ds,epochs = 2)
 
-
-
-
 plt.plot(retVal.history['loss'], label = 'training loss')
 plt.plot(retVal.history['accuracy'], label = 'training accuracy')
 plt.legend()
-
-
-
-
 
 AccuracyVector = []
 plt.figure(figsize=(30, 30))
@@ -93,12 +71,7 @@ for images, labels in validation_ds.take(1):
         plt.axis('off')
         plt.grid(True)
 
-
-
-
-
-
-
 plt.plot(retVal.history['val_loss'], label = 'validation loss')
 plt.plot(retVal.history['val_accuracy'], label = 'validation accuracy')
 plt.legend()
+
