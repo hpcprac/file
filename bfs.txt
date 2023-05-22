@@ -127,3 +127,7 @@ int main(){
  
     return 0;
 }
+
+//running
+//g++ -fopenmp bfs.cpp
+//./a.out
