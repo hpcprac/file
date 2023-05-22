@@ -70,7 +70,7 @@ node *insert(node *root, int data)
             q.push(temp->right);
         }
     }
- 
+ return root;
 }
 
 void bfs(node *head)
