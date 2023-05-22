@@ -41,6 +41,10 @@ int main(){
     return 0;
 }
 
+//Run
+//g++ -fopenmp bfs.cpp
+//./a.out
+
 // Input
 // 6 5 1
 // 1 2
